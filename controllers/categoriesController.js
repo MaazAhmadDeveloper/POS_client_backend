@@ -21,9 +21,9 @@ export const getCategoriesController = async (req, res) => {
 
 //for add
 export const addCategoriesController = async (req, res) => {
-    const imageUrl = `/uploads/${req.file.filename}`;
+    // const imageUrl = `/uploads/${req.file.filename}`;
         try {
-            const newCategories = new Categories({...req.body, image: imageUrl});
+            const newCategories = new Categories({...req.body});
             await newCategories.save();
             res.send("Category Created Successfully!");
     

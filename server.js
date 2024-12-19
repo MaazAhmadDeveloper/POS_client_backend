@@ -20,7 +20,7 @@ const __dirname = dirname(__filename);
 dotenv.config();
 
 //Connect with MongoDB
-await mongoose.connect("mongodb://0.0.0.0:27017/fivePOSdb").then(() => {
+await mongoose.connect("mongodb+srv://mongodb1125:mongodb123456@firstclustor.yftff.mongodb.net/?retryWrites=true&w=majority&appName=FirstClustor").then(() => {
     console.log("Connected to DB");
 }).catch((err) => {
     // console.log(err.message);

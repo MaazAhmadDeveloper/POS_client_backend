@@ -22,10 +22,10 @@ export const getProductController = async (req, res) => {
 
 //for add
 export const addProductController = async (req, res) => {
-    const imageUrl = `/uploads/${req.file.filename}`;
+    // const imageUrl = `/uploads/${req.file.filename}`;
     try {
 
-        const newProducts = new Product({...req.body, image: imageUrl});
+        const newProducts = new Product({...req.body});
         await newProducts.save();
         res.status(200).send("Products Created Successfully!");
 

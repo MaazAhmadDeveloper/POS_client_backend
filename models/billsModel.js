@@ -11,6 +11,8 @@ const billsSchema = new mongoose.Schema({
     totalAmount: { type: Number, required: true },
     discount: { type: Number, required: true },
     paymentMethod: { type: String, required: true },
+    servicetType: { type: String, required: true },
+    handler: { type: String, required: true },
     cartItems: { type: Array, required: true }
 
 }, {
