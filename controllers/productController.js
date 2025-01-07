@@ -67,14 +67,14 @@ export const deleteProductController = async (req, res) => {
     }else{
         // to delete one product by products sections
         try {
-            const fullPath = path.join(__dirname, "..", 'uploads', path.basename(req.body.imagePath));
+            // const fullPath = path.join(__dirname, "..", 'uploads', path.basename(req.body.imagePath));
 
-            fs.unlink(fullPath, (err) => {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).send('Error deleting the image.');
-                }
-            });
+            // fs.unlink(fullPath, (err) => {
+            //     if (err) {
+            //         console.error(err);
+            //         return res.status(500).send('Error deleting the image.');
+            //     }
+            // });
             await Product.findOneAndDelete({_id: req.body.productId});
             res.status(200).json("Product Deleted!");
         } catch(error) {

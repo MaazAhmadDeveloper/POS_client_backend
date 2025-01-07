@@ -50,14 +50,14 @@ export const updateCategoriesController = async (req, res) => {
 // for delete
 export const deleteCategoriesController = async (req, res) => {
     try {
-        const fullPath = path.join(__dirname, "..", 'uploads', path.basename(req.body.imagePath));
+        // const fullPath = path.join(__dirname, "..", 'uploads', path.basename(req.body.imagePath));
 
-        fs.unlink(fullPath, (err) => {
-            if (err) {
-                console.error(err);
-                return res.status(500).send('Error deleting the image.');
-            }
-        });
+        // fs.unlink(fullPath, (err) => {
+        //     if (err) {
+        //         console.error(err);
+        //         return res.status(500).send('Error deleting the image.');
+        //     }
+        // });
         await Categories.findOneAndDelete({_id: req.body.productId})
         res.status(200).json("Product Deleted!");
     } catch(error) {
