@@ -23,7 +23,13 @@ export const getProductController = async (req, res) => {
 //for add
 export const addProductController = async (req, res) => {
     // const imageUrl = `/uploads/${req.file.filename}`;
+
     try {
+        const name = req.body.name.trim();
+        const existingProduct = await Product.findOne({ name });
+        if (existingProduct) {
+            return res.status(400).send({message:"Product with the same name already exists!", code:12});
+        }
 
         const newProducts = new Product({...req.body});
         await newProducts.save();
